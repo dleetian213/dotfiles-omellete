@@ -1,0 +1,91 @@
+configuration {
+    /* Ensures it defaults to dmenu logic */
+    modi: "drun";
+    display-dmenu: " : ";
+    show-icons: false; /* Usually false for dmenu, set to true if needed */
+}
+
+* {
+    /* Your specific colors and font */
+    bg-col:      #060926e8; 
+    text-col:    #c6c8dc;   
+    sel-col:     #83A4E7;   
+    
+    background-color: transparent;
+    text-color:       @text-col;
+    font:             "FiraCode Nerd Font Mono 14";
+}
+
+window {
+    width:              100%;
+    height:             100%;
+    fullscreen:         true;
+    background-color:   @bg-col;
+    
+    /* Layout positioning */
+    border:             0px;
+    outline:            0px;
+    /* top, right, bottom, left */
+    padding:            33% 10% 0% 10%; 
+}
+
+mainbox {
+    border:             0px;
+    padding:            0px;
+    /* Organizes the layout vertically */
+    children:           [ inputbar, listview ];
+}
+
+inputbar {
+    spacing:            0px;
+    /* Pushes the results down by 25px from the search bar */
+    padding:            0px 0px 25px 0px; 
+    children:           [ prompt, entry ];
+}
+
+prompt {
+    text-color:         @text-col;
+}
+
+entry {
+    text-color:         @text-col;
+    placeholder:        "";
+    cursor:             text;
+}
+
+listview {
+    /* Fixed 5 results as requested */
+    lines:              5;    
+    columns:            1;
+    fixed-height:       true;
+    /* Spacing between individual result lines */
+    spacing:            10px; 
+    border:             0px;
+    layout:             vertical;
+}
+
+element {
+    padding:            8px;
+    border-radius:      8px;
+    background-color:   transparent;
+    text-color:         @text-col;
+    cursor:             pointer;
+}
+
+element selected {
+    background-color:   @sel-col;
+    /* Using your background color for the text when selected for contrast */
+    text-color:         #060926; 
+}
+
+element-text {
+    text-color:         inherit;
+    font:               inherit;
+    vertical-align:      0.5;
+}
+
+/* Usually hidden in dmenu, but defined just in case */
+element-icon {
+    size:               32px;
+    padding:            0px 10px 0px 0px;
+}

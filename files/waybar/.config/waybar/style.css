@@ -1,0 +1,62 @@
+* {
+    /* Updated to the font you just installed */
+    font-family: "IosevkaTerm Nerd Font Mono", "Iosevka Nerd Font";
+    font-size: 14px;
+    border: none;
+}
+
+window#waybar {
+    background-color: #060926;
+    color: #c6c8dc;
+    /* border-bottom: 2px solid #83A4E7; */
+}
+
+/* Module: Arch Logo */
+#custom-arch {
+    color: #83a4e7;
+    font-size: 18px;
+    padding: 0 15px;
+}
+
+/* Module: Workspaces */
+#workspaces button {
+    color: #c6c8dc;
+    padding: 0 5px;
+    transition: all 0.3s ease;
+}
+
+#workspaces button.active {
+    color: #83a4e7;
+    border-bottom: 2px solid #83a4e7;
+}
+
+#workspaces button:hover {
+    background: rgba(131, 164, 231, 0.1);
+}
+
+/* Common padding for right-side modules */
+#mpris, 
+#cpu, 
+#memory, 
+#pulseaudio, 
+#backlight, 
+#network, 
+#battery, 
+#clock {
+    padding: 0 10px;
+}
+
+/* Specific Module Styling */
+#mpris {
+    color: #83a4e7;
+    font-weight: bold;
+}
+
+#network.disconnected,
+#battery.critical:not(.charging) {
+    color: #f43753;
+}
+
+#clock {
+    font-weight: bold;
+}

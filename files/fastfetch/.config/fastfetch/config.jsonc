@@ -1,0 +1,94 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "source": "~/.config/fastfetch/logo.txt",
+        "type": "auto",
+        "color": {
+            "1": "#4169E1",
+            "2": "#4169E1"
+        },
+        "padding": {
+            "top": 1,
+            "right": 2,
+        }
+    },
+    "display": {
+        "separator": "  ",
+        "color": {
+            "keys": "#4169E1"
+        }
+    },
+    "modules": [
+        "title",
+        {
+            "type": "separator",
+            "string": "    "
+        },
+        {
+            "type": "os",
+            "key": "󰣇 ",
+            "format": "Arch {1} ({4})"
+        },
+        {
+            "type": "kernel",
+            "key": "󰒋 ",
+            "format": "{1} {2}",
+        },
+        {
+            "type": "packages",
+            "key": " ",
+            "format": "{1} (pacman)",
+        },
+        {
+            "type": "wm",
+            "key": "󱂬 ",
+            "format": "{2} (Wayland)"
+        },
+        {
+            "type": "terminal",
+            "key": " ",
+            "format": "{1}"
+        },
+        {
+            "type": "shell",
+            "key": " ",
+            "format": "{1} {2}"
+        },
+        "break",
+        {
+            "type": "cpu",
+            "key": " ",
+            "showPeCoreCount": true
+        },
+        {
+            "type": "gpu",
+            "key": " ",
+            "format": "{1} / {2} ({3})",
+        },
+        {
+            "type": "memory",
+            "key": " ",
+            "format": "{1} / {2} ({3})"
+        },
+        {
+            "type": "disk",
+            "key": " ",
+            "format": "{1} / {2} {3}",
+        },
+        {
+            "type": "battery",
+            "key": "󰁹 ",
+        },
+        {
+            "type": "uptime",
+            "key": "󱑆 ",
+            "format": "{2}h {3}m",
+        },
+        {
+            "type": "localip",
+            "key": "󰩟 ",
+            "compact": true,
+        },
+        "break",
+    ]
+}

@@ -1,0 +1,73 @@
+* {
+    /* Your specific colors */
+    bg-col:      #2a2a2cd9; /* Dark background with transparency */
+    text-col:    #c6c8dc;   /* Muted grey/purple text */
+    sel-col:     #83A4E7;   /* Light blue selection */
+    
+    background-color: transparent;
+    font: "FiraCode Nerd Font Mono 12";
+}
+
+window {
+    width:              100%;
+    height:             100%;
+    fullscreen:         true;
+    background-color:   @bg-col;
+    text-color:         @text-col;
+    
+    /* Layout positioning */
+    border:             0px;
+    outline:            0px;
+    padding:            33% 10% 0% 10%; /* top, right, bottom, left */
+}
+
+mainbox {
+    border:             0px;
+    padding:            0px;
+    children:           [ inputbar, listview ];
+}
+
+inputbar {
+    spacing:            0px;
+    padding:            0px 0px 25px 0px; /* result-spacing via padding-bottom */
+    children:           [ prompt, entry ];
+}
+
+prompt {
+    text-color:         @text-col;
+}
+
+entry {
+    text-color:         @text-col;
+    placeholder:        "";
+}
+
+listview {
+    lines:              5;    /* num-results = 5 */
+    columns:            1;
+    fixed-height:       true;
+    spacing:            5px; /* result-spacing = 25 */
+    border:             0px;
+}
+
+element {
+    padding:            5px;
+    border-radius:      8px;
+    background-color:   transparent;
+    text-color:         @text-col;
+}
+
+element selected {
+    background-color:   @sel-col;
+    text-color:         #11111b; /* Darker text on blue for readability */
+}
+
+element-text {
+    text-color:         inherit;
+    font:               inherit;
+}
+
+element-icon {
+    size:               32px;
+    padding:            0px 10px 0px 0px;
+}
