@@ -1,5 +1,8 @@
 {
-  "extras": [],
+  "extras": [
+    "lazyvim.plugins.extras.lang.python",
+    "lazyvim.plugins.extras.util.dot"
+  ],
   "news": {
     "NEWS.md": "11866"
   },
