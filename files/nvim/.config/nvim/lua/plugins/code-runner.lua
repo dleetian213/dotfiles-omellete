@@ -5,22 +5,16 @@ return {
 
     iron.setup({
       config = {
-        -- Whether a repl should be discarded or not
         scratch_repl = true,
-        -- Your repl definitions come here
         repl_definition = {
           python = {
-            -- Can be a table or a function that
-            -- returns a table (see below)
-            command = { "python" },
+            -- Pro Tip: Use "ipython" instead of "python" if you have it installed
+            -- It handles multi-line indentation much better in a REPL.
+            command = { "ipython", "--no-autoindent" },
           },
         },
-        -- How the repl window will be displayed
-        -- See below for more information
         repl_open_cmd = require("iron.view").right(60),
       },
-      -- Iron doesn't set keymaps by default anymore.
-      -- You can set them here or manually add keymaps to the functions in iron.core
       keymaps = {
         send_motion = "<space>rc",
         visual_send = "<space>rc",
@@ -35,18 +29,22 @@ return {
         exit = "<space>rq",
         clear = "<space>rx",
       },
-      -- If the highlight is on, you can change how it looks
-      -- For the available options, check nvim_set_hl
       highlight = {
         italic = true,
       },
-      ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
+      ignore_blank_lines = true,
     })
 
-    -- iron also has a list of commands, see :h iron-commands for all available commands
+    -- 1. Standard Commands
     vim.keymap.set("n", "<space>rs", "<cmd>IronRepl<cr>")
     vim.keymap.set("n", "<space>rr", "<cmd>IronRestart<cr>")
     vim.keymap.set("n", "<space>rF", "<cmd>IronFocus<cr>")
     vim.keymap.set("n", "<space>rh", "<cmd>IronHide<cr>")
+
+    -- 2. THE CHUNK SENDER
+    -- This looks for # %% (Standard Jupyter/VS Code markers)
+    vim.keymap.set("n", "<space>rX", function()
+      iron.send_chunk()
+    end, { desc = "Send cell/chunk to REPL" })
   end,
 }
